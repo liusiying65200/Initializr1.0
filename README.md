@@ -100,3 +100,13 @@ Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'pe
     private Integer age;
 ```
 
+> 使用@ConfigurationProperties注解的先决条件是需要添加以下依赖
+
+```xml
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-configuration-processor</artifactId>
+	<optional>true</optional>
+</dependency>
+```
+
