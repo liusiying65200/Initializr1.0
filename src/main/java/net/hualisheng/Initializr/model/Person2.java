@@ -2,18 +2,23 @@ package net.hualisheng.Initializr.model;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.validation.annotation.Validated;
 
+import javax.validation.constraints.Email;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 @Component
+@Validated //在@Value 注解中是失效状态
 //@ConfigurationProperties(prefix = "person")
 public class Person2 {
     @Value("${person.name}")
     private String name;
-    @Value("${person.age}")
+//    @Value("${person.age}")
+    @Value("#{41*74}") //SpEL语法的支持
     private Integer age;
+    @Email //在@Value 注解中是失效状态
     @Value("${person.email}")
     private String email;
 //    @Value("${person.lastName}") --不支持松散型语法
@@ -25,9 +30,9 @@ public class Person2 {
     private Boolean boss;
     @Value("${person.list}")
     private List<String> list;
-    @Value("${person.maps}")
+//    @Value("${person.maps}")
     private Map<String,String> maps;
-    @Value("${person.dog}")
+//    @Value("${person.dog}")
     private Dog dog;
 
     public String getName() {

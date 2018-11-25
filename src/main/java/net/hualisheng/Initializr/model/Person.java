@@ -2,15 +2,19 @@ package net.hualisheng.Initializr.model;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
+import org.springframework.validation.annotation.Validated;
 
+import javax.validation.constraints.Email;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 @Component
 @ConfigurationProperties(prefix = "person")
+@Validated
 public class Person {
     private String name;
     private Integer age;
+    @Email
     private String email;
     private String lastName;
     private Date birth;
